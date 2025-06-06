@@ -1,0 +1,24 @@
+Operation: createOrder()
+Responsibility: OrderController
+
+Use-cases:
+- A customer initiates a new order through the user interface
+- System begins tracking a new purchase
+
+Inputs:
+- customer: Customer
+
+Preconditions:
+- customer member of (∈) CustomerContainer.customers
+- OrderController is active
+- No active (unfinished) order currently exists for the customer (optional business rule)
+
+Postconditions:
+- there exists (∃) co: Order such that
+    - co.customer = customer
+    - co.orderLines = []
+    - co.status = "pending"
+    - co.id = unique ID
+    - co ∈ OrderContainer.orders
+- co is associated with the given customer (association formed)
+- co is returned to the calling context (UI or controller)
