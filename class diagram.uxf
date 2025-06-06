@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>484</y>
+      <w>104</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>Product
+--
+-product_id: int
+-product_name: String
+-manufacturer: String
+-model: String
+-barcode: String
+-min_stock: int
+-max_stock: int
+-description: String
+-category: String
+-stock_keeping_unit: String
+-rec_retail_price: double
+-trade_allowance: int
+-cost_price: double
+-sell_price: double
+--
+&lt;constructor&gt;Product()
++getProductId(): int
++setProductId(id: int): void
++getProductName(): String
++setProductName(name: String): void
++getManufacturer(): String
++setManufacturer(name: String): void
++getModel(): String
++setModel(name: String): void
++getBarcode(): String
++setBarcode(code: String): void
++getMinStock(): int
++setMinStock(qty: int): void
++getMaxStock(): int
++setMaxStock(qty: int): void
++getDescription(): String
++setDescription(desc: String): void
++getCategory(): String
++setCategory(category: String): void
++getSKU(): String
++setSKU(sku: String): void
++getRRP(): double
++setRRP(rrp: double): void
++getTALL(): int
++setTALL(allowance: int): void
++getCPrice(): double
++setCPrice(price: double): void
++getSPrice(): double
++setSPrice(price: double): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>492</x>
+      <y>524</y>
+      <w>320</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>Location
+--
+-locationId: int
+-city: String
+-address: String
+-phone: String
+-siteName: String
+-managerName: String
+-isPrimary: boolean
+--
+&lt;constructor&gt;Location(city: String, address: String, phone: String, siteName: String, managerName: String, isPrimary: boolean)
++getLocationId(): int
++setLocationId(id: int): void
++getCity(): String
++setCity(name: String): void
++getAddress(): String
++setAddress(addr: String): void
++getPhone(): String
++setPhone(phone: String): void
++getSiteName(): String
++setSiteName(name: String): void
++getManagerName(): String
++setManagerName(name: String): void
++isPrimary(): Boolean
++setPrimary(flag: Boolean): void
++getPhone(): String): String
++updatePhone(newPhone: String): void
++getPrimary(): String
++setPrimary(): void
++createSite(): void
++toString(): String
++getAllLocations(): List&lt;Location&gt;
++findById(id: int): Location
++clearLocations(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>824</x>
+      <y>476</y>
+      <w>140</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Order
+--
+-orderId: int
+-customer: Customer
+-orderLines: List&lt;OrderLine&gt;
+-discount: double
+--
+&lt;constructor&gt;Order(customer: Customer)
++addProduct(product: Product, quantity: int): Boolean
++removeProduct(productId: int): Boolean
++calculateTotal(): double
++isValid(): Boolean
++generateInvoice(): Invoice
++toString(): String
++getOrderId(): int
++setOrderId(id: int): void
++getCustomer(): Customer
++setCustomer(customer: Customer): void
++getOrderLines(): List&lt;OrderLine&gt;
++setOrderLines(list: List&lt;OrderLine&gt;
++getDiscount(): double
++setDiscount(percentage: double): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1032</x>
+      <y>444</y>
+      <w>128</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>CustomerContainer
+--
+-instance: CustomerContainer
+-customers: List&lt;Customer&gt;
+--
+&lt;constructor&gt;CustomerContainer()
++getInstance: CustomerContainer
++addCustomer(customer: Customer): void
++findCustomerByName(name: String): Customer
++getAllCustomers(): List&lt;Customer&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>92</y>
+      <w>116</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>OrderUI
+--
+-orderController: OrderController
+-order: Order
+--
++findCustomerByName: Customer
++addCustomer: Boolean
++deleteCustomer: Boolean
++printInvoice(): void
++generateSalesReport(): void
++printProductLabel(productId: int): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>824</x>
+      <y>380</y>
+      <w>128</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>OrderContainer
+--
+-instance: CustomerContainer
+-orders: List&lt;Order&gt;
+--
+&lt;constructor&gt;OrderContainer()
++getInstance(): CustomerContainer
++addOrder(customer: Customer): void
++findOrderById(id: int): Order
++getAllOrders(): list&lt;Order&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>396</x>
+      <y>380</y>
+      <w>116</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>ProductContainer
+--
+-instance: ProductContainer
+-products: List&lt;Product&gt;
+--
+&lt;constructor&gt;ProductContainer()
++getInstance(): ProductContainer
++addProduct(product: Product): void
++findProductById(id: int): Product
++getAllProducts(): List&lt;Product&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>892</x>
+      <y>168</y>
+      <w>12</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>828</x>
+      <y>196</y>
+      <w>136</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>OrderController
+--
+-customerController: CustomerController
+-productController: ProductController
+-locationController: LocationController
+-currentOrder: Order
+--
+&lt;constructor&gt;OrderController()
++createOrder(customerId: int): Boolean
++addProduct(productId: int, quantity: int): Boolean
++removeProduct(productId: int): Boolean
++registerCustomer(customer: Customer): Boolean
++getCurrentOrder(): Order
++applyDiscount(percentage: double): void
++calculateTotal(): double
++validateOrder(): Boolean
++finishOrder(): Invoice
++cancelOrder(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1024</x>
+      <y>316</y>
+      <w>136</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>CustomerController
+--
+-currentOrder: Order
+--
+&lt;constructor&gt;CustomerController()
++addCustomer(customer: Customer): void
++findCustomerByName(name: String): Customer
++getAllCustomers: List&lt;Customer&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>388</x>
+      <y>256</y>
+      <w>136</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>ProductController
+--
+-productContainer: ProductContainer
+--
+&lt;constructor&gt;OrderController()
++findProductById(id: int): Product
++addProduct(product: Product): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1036</x>
+      <y>540</y>
+      <w>104</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Customer
+--
+-id: int
+-name: String 
+-email: String
+-phone: String
+-address: String
+--
+&lt;constructor&gt;Customer(name: String)
++toString(): String
++getId(): int
++setId(id: int): void
++getName(): String
++setName(name: String): void
++getEmail(): String
++setEmail(email: String): void
++getPhone(): String
++setPhone(phone: String): void
++getAddress(): String
++setAddress(addr: String): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>632</x>
+      <y>296</y>
+      <w>136</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>LocationController
+--
+-locationContainer: LocationContainer
+--
+&lt;constructor&gt;OrderController()
++createOrder(customerId: int): Boolean
++addProduct(productId: int, quantity: int): Boolean
++removeProduct(productId: int): Boolean
++registerCustomer(customer: Customer): Boolean
++getCurrentOrder(): Order
++applyDiscount(percentage: double): void
++calculateTotal(): double
++validateOrder(): Boolean
++finishOrder(): Invoice
++cancelOrder(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>424</y>
+      <w>116</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>LocationContainer
+--
+-instance: LocationContainer
+-locations: List&lt;Location&gt;
+--
+&lt;constructor&gt;ProductContainer()
++getInstance(): ProductContainer
++addProduct(product: Product): void
++findProductById(id: int): Product
++getAllProducts(): List&lt;Product&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>764</x>
+      <y>240</y>
+      <w>72</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;140.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>200</y>
+      <w>316</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;150.0;250.0;60.0;500.0;20.0;770.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>212</y>
+      <w>112</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>260.0;260.0;240.0;180.0;120.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>696</x>
+      <y>400</y>
+      <w>12</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>696</x>
+      <y>496</y>
+      <w>12</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>892</x>
+      <y>304</y>
+      <w>12</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>892</x>
+      <y>452</y>
+      <w>12</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1092</x>
+      <y>420</y>
+      <w>12</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1092</x>
+      <y>516</y>
+      <w>12</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>360</y>
+      <w>12</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1236</x>
+      <y>316</y>
+      <w>136</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>EmployeeController
+--
+-currentEmployee: Employee
+--
+&lt;constructor&gt;EmployeeController()
++addEmployee(e: Employee): void
++findEmployeeByName(name: String): Employee
++getAllEmployees: List&lt;Employee&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1244</x>
+      <y>444</y>
+      <w>128</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>EmployeeContainer
+--
+-instance: EmployeeContainer
+-employees: List&lt;Employee&gt;
+--
+&lt;constructor&gt;EmployeeContainer()
++getInstance: EmployeeContainer
++addEmployee(employee: Employee): void
++findEmployeeByName(name: String): Employee
++getAllEmployees(): List&lt;Employee&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1248</x>
+      <y>540</y>
+      <w>104</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Employee
+--
+-id: int
+-name: String 
+-email: String
+-phone: String
+-address: String
+--
+&lt;constructor&gt;Employee(name: String)
++toString(): String
++getId(): int
++setId(id: int): void
++getName(): String
++setName(name: String): void
++getEmail(): String
++setEmail(email: String): void
++getPhone(): String
++setPhone(phone: String): void
++getAddress(): String
++setAddress(addr: String): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1304</x>
+      <y>516</y>
+      <w>12</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1304</x>
+      <y>420</y>
+      <w>12</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>196</y>
+      <w>284</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>690.0;300.0;540.0;140.0;410.0;50.0;240.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>824</y>
+      <w>104</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>SimpleProduct
+--
+
+--
+&lt;constructor&gt;SimpleProduct()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>388</x>
+      <y>824</y>
+      <w>104</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>UnitProduct
+--
+
+--
+&lt;constructor&gt;UnitProduct()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>412</x>
+      <y>452</y>
+      <w>36</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>256</x>
+      <y>780</y>
+      <w>72</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>780</y>
+      <w>72</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;110.0</additional_attributes>
+  </element>
+</diagram>
